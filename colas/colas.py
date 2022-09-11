@@ -16,12 +16,17 @@ celery_app = Celery(__name__, broker="redis://localhost:6379/0")
 
 @celery_app.task(name='registrar_log')
 def registrar_log(id, operador_id, fecha, observaciones):
-    nuevo_log = LogOperador(
-            id = id,
-            operador_id = operador_id,
-            fecha = fecha,
-            observaciones = observaciones,
-        )
-    session.add(nuevo_log)
-    session.commit()
-    return True
+    try:
+        nuevo_log = LogOperador(
+                id = id,
+                operador_id = operador_id,
+                fecha = fecha,
+                observaciones = observaciones,
+            )
+        session.add(nuevo_log)
+        session.commit()
+        return True
+    except:
+        session.rollback()
+        return False 
+    
