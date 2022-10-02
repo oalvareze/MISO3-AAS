@@ -1,12 +1,68 @@
 {
 	"info": {
-		"_postman_id": "4f314723-1c26-46b3-8853-c472dde7f625",
+		"_postman_id": "1ebb91de-e04b-41a7-a9d5-6a440a520d4e",
 		"name": "AAS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "Insertar Log",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{$guid}}\",\n    \"operador_id\": \"{{$guid}}\",\n    \"fecha\": \"{{$isoTimestamp}}\",\n    \"observaciones\": \"{{$randomPhrase}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/log_operadores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"log_operadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer Logs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{$guid}}\",\n    \"operador_id\": \"{{$guid}}\",\n    \"fecha\": \"{{$isoTimestamp}}\",\n    \"observaciones\": \"{{$randomPhrase}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/log_operadores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"log_operadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iniciar Sesion",
 			"request": {
 				"method": "POST",
 				"header": [],
