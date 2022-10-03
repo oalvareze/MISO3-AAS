@@ -46,7 +46,7 @@ class VistaLogOperadores(Resource):
 class VistaInicioSesion(Resource):
 
     def post(self):
-        additional_claims = {"permisos": "agregar"}
+        additional_claims = {"permisos": "eliminar"}
         token = create_access_token(identity=request.json["usuario"], additional_claims=additional_claims)
         return {'token': token}
 
